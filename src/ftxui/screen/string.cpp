@@ -278,7 +278,7 @@ std::vector<std::string> Utf8ToGlyphs(const std::string& input) {
     // string to reserve the space the first is taking.
     if (IsFullWidth(codepoint)) {
       out.push_back(append);
-      out.push_back("");
+      out.emplace_back("");
       continue;
     }
 
