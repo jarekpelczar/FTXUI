@@ -10,7 +10,7 @@ namespace ftxui {
 template <typename T>
 class ConstRef {
  public:
-  ConstRef() {}
+  ConstRef() = default;
   ConstRef(T t) : owned_(t) {}
   ConstRef(const T* t) : address_(t) {}
   const T& operator*() { return address_ ? *address_ : owned_; }
@@ -26,7 +26,7 @@ class ConstRef {
 template <typename T>
 class Ref {
  public:
-  Ref() {}
+  Ref() = default;
   Ref(T t) : owned_(t) {}
   Ref(T* t) : address_(t) {}
   T& operator*() { return address_ ? *address_ : owned_; }
