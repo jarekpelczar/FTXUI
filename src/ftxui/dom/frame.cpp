@@ -63,7 +63,7 @@ class Focus : public Select {
     // [issue]:
     // https://github.com/ArthurSonzogni/FTXUI/issues/2#issuecomment-505282355
     //
-    // Unfortunately, Microsoft terminal do not handle properly hidding the
+    // Unfortunately, Microsoft terminal do not handle properly hiding the
     // cursor. Instead the character under the cursor is hidden, which is a big
     // problem. As a result, we can't enable setting cursor to the right
     // location. It will be displayed at the bottom right corner.
