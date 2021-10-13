@@ -130,8 +130,8 @@ class MenuBase : public ComponentBase {
     return true;
   }
 
-  bool Focusable() const final { return entries_.size(); }
-  int& focused_entry() { return option_->focused_entry(); }
+  [[nodiscard]] bool Focusable() const final { return entries_.size(); }
+  [[nodiscard]] int& focused_entry() { return option_->focused_entry(); }
 
  protected:
   ConstStringListRef entries_;

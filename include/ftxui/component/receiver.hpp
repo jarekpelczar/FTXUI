@@ -86,7 +86,7 @@ class ReceiverImpl {
     return false;
   }
 
-  bool HasPending() {
+  [[nodiscard]] bool HasPending() {
     std::unique_lock<std::mutex> lock(mutex_);
     return !queue_.empty();
   }

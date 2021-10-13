@@ -172,7 +172,7 @@ class WideInputBase : public ComponentBase {
     return true;
   }
 
-  bool Focusable() const final { return true; }
+  [[nodiscard]] bool Focusable() const final { return true; }
 
   WideStringRef content_;
   ConstStringRef placeholder_;

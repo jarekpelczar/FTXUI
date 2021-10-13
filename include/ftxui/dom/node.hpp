@@ -26,7 +26,7 @@ class Node {
   //         element wants to be.
   //         Propagated from Children to Parents.
   virtual void ComputeRequirement();
-  Requirement requirement() { return requirement_; }
+  [[nodiscard]] Requirement requirement() { return requirement_; }
 
   // Step 2: Assign this element its final dimensions.
   //         Propagated from Parents to Children.

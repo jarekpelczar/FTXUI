@@ -41,7 +41,7 @@ class RadioboxBase : public ComponentBase {
   }
 
  private:
-  Element Render() override {
+  [[nodiscard]] Element Render() override {
     Elements elements;
     bool is_menu_focused = Focused();
     boxes_.resize(entries_.size());
@@ -66,7 +66,7 @@ class RadioboxBase : public ComponentBase {
     return vbox(std::move(elements)) | reflect(box_);
   }
 
-  bool OnEvent(Event event) override {
+  [[nodiscard]] bool OnEvent(Event event) override {
     if (!CaptureMouse(event))
       return false;
 
@@ -102,7 +102,7 @@ class RadioboxBase : public ComponentBase {
     return false;
   }
 
-  bool OnMouseEvent(Event event) {
+  [[nodiscard]] bool OnMouseEvent(Event event) {
     if (event.mouse().button == Mouse::WheelDown ||
         event.mouse().button == Mouse::WheelUp) {
       return OnMouseWheel(event);
@@ -127,7 +127,7 @@ class RadioboxBase : public ComponentBase {
     return false;
   }
 
-  bool OnMouseWheel(Event event) {
+  [[nodiscard]] bool OnMouseWheel(Event event) {
     if (!box_.Contain(event.mouse().x, event.mouse().y))
       return false;
 
@@ -146,8 +146,8 @@ class RadioboxBase : public ComponentBase {
     return true;
   }
 
-  bool Focusable() const final { return entries_.size(); }
-  int& focused_entry() { return option_->focused_entry(); }
+  [[nodiscard]] bool Focusable() const final { return entries_.size(); }
+  [[nodiscard]] int& focused_entry() { return option_->focused_entry(); }
 
   ConstStringListRef entries_;
   int* selected_;

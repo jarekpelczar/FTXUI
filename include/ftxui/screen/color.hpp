@@ -25,8 +25,8 @@ class Color {
   Color(Palette16 index);   // Implicit conversion from index to Color.
   Color(Palette256 index);  // Implicit conversion from index to Color.
   Color(uint8_t red, uint8_t green, uint8_t blue);
-  static Color RGB(uint8_t red, uint8_t green, uint8_t blue);
-  static Color HSV(uint8_t hue, uint8_t saturation, uint8_t value);
+  [[nodiscard]] static Color RGB(uint8_t red, uint8_t green, uint8_t blue);
+  [[nodiscard]] static Color HSV(uint8_t hue, uint8_t saturation, uint8_t value);
 
   //---------------------------
   // List of colors:
@@ -303,7 +303,7 @@ class Color {
   bool operator==(const Color& rhs) const;
   bool operator!=(const Color& rhs) const;
 
-  std::string Print(bool is_background_color) const;
+  [[nodiscard]] std::string Print(bool is_background_color) const;
 
  private:
   enum class ColorType : uint8_t {

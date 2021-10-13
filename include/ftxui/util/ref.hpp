@@ -96,8 +96,10 @@ class ConstStringListRef {
   ConstStringListRef(const std::vector<std::string>* ref) : ref_(ref) {}
   ConstStringListRef(const std::vector<std::wstring>* ref) : ref_wide_(ref) {}
 
-  size_t size() const { return ref_ ? ref_->size() : ref_wide_->size(); }
-  std::string operator[](size_t i) const {
+  [[nodiscard]] size_t size() const noexcept {
+    return ref_ ? ref_->size() : ref_wide_->size();
+  }
+  [[nodiscard]] std::string operator[](size_t i) const {
     return ref_ ? (*ref_)[i] : to_string((*ref_wide_)[i]);
   }
 
