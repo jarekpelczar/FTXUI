@@ -1,6 +1,6 @@
-#include <stddef.h>   // for size_t
+#include <cstddef>    // for size_t
 #include <algorithm>  // for max, min
-#include <memory>  // for make_shared, __shared_ptr_access, allocator, shared_ptr, allocator_traits<>::value_type
+#include <memory>   // for make_shared, __shared_ptr_access, allocator, shared_ptr, allocator_traits<>::value_type
 #include <utility>  // for move
 #include <vector>   // for vector, __alloc_traits<>::value_type
 

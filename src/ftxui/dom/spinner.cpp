@@ -1,4 +1,4 @@
-#include <stddef.h>  // for size_t
+#include <cstddef>   // for size_t
 #include <memory>    // for allocator, allocator_traits<>::value_type
 #include <string>    // for string
 #include <utility>   // for move

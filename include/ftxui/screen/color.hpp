@@ -1,7 +1,7 @@
 #ifndef FTXUI_SCREEN_COLOR
 #define FTXUI_SCREEN_COLOR
 
-#include <stdint.h>  // for uint8_t
+#include <cstdint>   // for uint8_t
 #include <string>    // for wstring
 
 #ifdef RGB

@@ -1,4 +1,4 @@
-#include <stddef.h>    // for size_t
+#include <cstddef>     // for size_t
 #include <algorithm>   // for max, min
 #include <functional>  // for function
 #include <memory>      // for shared_ptr, allocator_traits<>::value_type

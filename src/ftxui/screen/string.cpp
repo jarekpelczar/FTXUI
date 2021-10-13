@@ -7,8 +7,8 @@
 
 #include "ftxui/screen/string.hpp"
 
-#include <stddef.h>  // for size_t
-#include <stdint.h>  // for uint32_t, uint8_t
+#include <cstddef>   // for size_t
+#include <cstdint>   // for uint32_t, uint8_t
 #include <codecvt>   // for codecvt_utf8_utf16
 #include <locale>    // for wstring_convert
 #include <string>    // for string, basic_string, wstring, allocator

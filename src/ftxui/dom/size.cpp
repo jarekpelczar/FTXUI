@@ -1,4 +1,4 @@
-#include <stddef.h>   // for size_t
+#include <cstddef>    // for size_t
 #include <algorithm>  // for min, max
 #include <memory>     // for make_shared, __shared_ptr_access
 #include <utility>    // for move

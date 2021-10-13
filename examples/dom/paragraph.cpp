@@ -1,4 +1,4 @@
-#include <stdio.h>  // for getchar
+#include <cstdio>  // for getchar
 #include <ftxui/dom/elements.hpp>  // for operator|, hflow, paragraph, border, Element, hbox, flex, vbox
 #include <ftxui/screen/screen.hpp>  // for Full, Screen
 #include <string>                   // for allocator, string

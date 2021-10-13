@@ -1,4 +1,4 @@
-#include <stdio.h>    // for fileno, stdin
+#include <cstdio>     // for fileno, stdin
 #include <algorithm>  // for copy, max, min
 #include <csignal>  // for signal, SIGABRT, SIGFPE, SIGILL, SIGINT, SIGSEGV, SIGTERM, SIGWINCH
 #include <cstdlib>           // for NULL
