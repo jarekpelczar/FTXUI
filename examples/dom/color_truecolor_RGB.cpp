@@ -7,10 +7,9 @@
 #include "ftxui/screen/box.hpp"    // for ftxui
 #include "ftxui/screen/color.hpp"  // for Color
 
-int main(int argc, const char* argv[]) {
+int main() {
   using namespace ftxui;
 
-  int saturation = 255;
   Elements red_line;
   Elements green_line;
   Elements blue_line;

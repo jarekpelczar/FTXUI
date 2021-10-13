@@ -13,7 +13,7 @@
 #include "ftxui/screen/box.hpp"  // for ftxui
 #include "ftxui/screen/color.hpp"  // for Color, Color::Green, Color::Red, Color::RedLight
 
-int main(int argc, const char* argv[]) {
+int main() {
   using namespace ftxui;
 
   struct Task {

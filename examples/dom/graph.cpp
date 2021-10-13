@@ -38,7 +38,7 @@ std::vector<int> triangle(int width, int height) {
   return output;
 }
 
-int main(int argc, const char* argv[]) {
+int main() {
   using namespace ftxui;
   using namespace std::chrono_literals;
 

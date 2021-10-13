@@ -11,7 +11,7 @@
 #include "ftxui/dom/elements.hpp"  // for operator|, color, separator, Decorator, bgcolor, flex, Element, bold, hbox, border, dim
 #include "ftxui/screen/color.hpp"  // for Color, Color::Blue, Color::BlueLight, Color::Red, Color::Yellow
 
-int main(int argc, const char* argv[]) {
+int main() {
   using namespace ftxui;
   auto screen = ScreenInteractive::TerminalOutput();
 

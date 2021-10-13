@@ -7,7 +7,7 @@
 #include "ftxui/dom/node.hpp"    // for Render
 #include "ftxui/screen/box.hpp"  // for ftxui
 
-int main(int argc, const char* argv[]) {
+int main() {
   using namespace ftxui;
   auto make_box = [](size_t dimx, size_t dimy) {
     std::string title = std::to_string(dimx) + "x" + std::to_string(dimy);

@@ -4,7 +4,7 @@
 
 using namespace ftxui;
 
-int main(int argc, const char* argv[]) {
+int main() {
   bool build_examples_state = false;
   bool build_tests_state = false;
   bool use_webassembly_state = true;
