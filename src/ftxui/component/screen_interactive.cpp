@@ -126,7 +126,7 @@ int CheckStdinReady(int usec_timeout) {
   fd_set fds;
   FD_ZERO(&fds);
   FD_SET(STDIN_FILENO, &fds);
-  select(STDIN_FILENO + 1, &fds, NULL, NULL, &tv);
+  select(STDIN_FILENO + 1, &fds, nullptr, nullptr, &tv);
   return FD_ISSET(STDIN_FILENO, &fds);
 }
 
