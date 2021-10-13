@@ -188,7 +188,7 @@ TerminalInputParser::Output TerminalInputParser::ParseESC() {
 
 TerminalInputParser::Output TerminalInputParser::ParseDCS() {
   // Parse until the string terminator ST.
-  while (1) {
+  while (true) {
     if (!Eat())
       return UNCOMPLETED;
 
