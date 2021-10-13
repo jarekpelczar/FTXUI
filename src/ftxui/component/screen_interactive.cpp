@@ -143,8 +143,8 @@ void EventListener(std::atomic<bool>* quit, Sender<Event> out) {
     }
 
     char buff[buffer_size];
-    int l = read(fileno(stdin), buff, buffer_size);
-    for (int i = 0; i < l; ++i)
+    ssize_t l = read(fileno(stdin), buff, buffer_size);
+    for (ssize_t i = 0; i < l; ++i)
       parser.Add(buff[i]);
   }
 }
