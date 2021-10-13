@@ -82,8 +82,12 @@ class ConstStringRef {
   ConstStringRef(const wchar_t* ref) : ConstStringRef(std::wstring(ref)) {}
   ConstStringRef(const char* ref)
       : ConstStringRef(to_wstring(std::string(ref))) {}
-  const std::string& operator*() { return address_ ? *address_ : owned_; }
-  const std::string* operator->() { return address_ ? address_ : &owned_; }
+  const std::string& operator*() noexcept {
+    return address_ ? *address_ : owned_;
+  }
+  const std::string* operator->() noexcept {
+    return address_ ? address_ : &owned_;
+  }
 
  private:
   const std::string owned_;
