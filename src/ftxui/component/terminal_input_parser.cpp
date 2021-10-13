@@ -17,7 +17,7 @@ void TerminalInputParser::Timeout(int time) {
   if (timeout_ < 50)
     return;
   timeout_ = 0;
-  if (pending_.size())
+  if (!pending_.empty())
     Send(SPECIAL);
 }
 

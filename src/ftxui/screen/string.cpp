@@ -269,7 +269,7 @@ std::vector<std::string> Utf8ToGlyphs(const std::string& input) {
 
     // Combining characters are put with the previous glyph they are modifying.
     if (IsCombining(codepoint)) {
-      if (out.size() != 0)
+      if (!out.empty())
         out.back() += append;
       continue;
     }

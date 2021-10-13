@@ -36,7 +36,7 @@ class ContainerBase : public ComponentBase {
   }
 
   Component ActiveChild() override {
-    if (children_.size() == 0)
+    if (children_.empty())
       return nullptr;
 
     return children_[*selector_ % children_.size()];
@@ -90,7 +90,7 @@ class VerticalContainer : public ContainerBase {
     Elements elements;
     for (auto& it : children_)
       elements.push_back(it->Render());
-    if (elements.size() == 0)
+    if (elements.empty())
       return text("Empty container") | reflect(box_);
     return vbox(std::move(elements)) | reflect(box_);
   }
@@ -101,9 +101,9 @@ class VerticalContainer : public ContainerBase {
       MoveSelector(-1);
     if (event == Event::ArrowDown || event == Event::Character('j'))
       MoveSelector(+1);
-    if (event == Event::Tab && children_.size())
+    if (event == Event::Tab && !children_.empty())
       MoveSelectorWrap(+1);
-    if (event == Event::TabReverse && children_.size())
+    if (event == Event::TabReverse && !children_.empty())
       MoveSelectorWrap(-1);
 
     *selector_ = std::max(0, std::min(int(children_.size()) - 1, *selector_));
@@ -142,7 +142,7 @@ class HorizontalContainer : public ContainerBase {
     Elements elements;
     for (auto& it : children_)
       elements.push_back(it->Render());
-    if (elements.size() == 0)
+    if (elements.empty())
       return text("Empty container");
     return hbox(std::move(elements));
   }
@@ -153,9 +153,9 @@ class HorizontalContainer : public ContainerBase {
       MoveSelector(-1);
     if (event == Event::ArrowRight || event == Event::Character('l'))
       MoveSelector(+1);
-    if (event == Event::Tab && children_.size())
+    if (event == Event::Tab && !children_.empty())
       MoveSelectorWrap(+1);
-    if (event == Event::TabReverse && children_.size())
+    if (event == Event::TabReverse && !children_.empty())
       MoveSelectorWrap(-1);
 
     *selector_ = std::max(0, std::min(int(children_.size()) - 1, *selector_));
