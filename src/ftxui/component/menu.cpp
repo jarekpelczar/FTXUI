@@ -135,7 +135,7 @@ class MenuBase : public ComponentBase {
 
  protected:
   ConstStringListRef entries_;
-  int* selected_ = 0;
+  int* selected_ = nullptr;
   Ref<MenuOption> option_;
 
   std::vector<Box> boxes_;
