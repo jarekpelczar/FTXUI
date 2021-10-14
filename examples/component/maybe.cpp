@@ -13,7 +13,7 @@ Component Border(Component child) {
   return Renderer(child, [child] { return child->Render() | border; });
 }
 
-int main(int argc, const char* argv[]) {
+int main() {
 
   std::vector<std::string> entries = {
       "entry 1",

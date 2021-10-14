@@ -6,7 +6,7 @@
 #include "ftxui/screen/box.hpp"    // for ftxui
 #include "ftxui/screen/color.hpp"  // for Color, Color::Black, Color::Blue, Color::BlueLight, Color::Cyan, Color::CyanLight, Color::Default, Color::GrayDark, Color::GrayLight, Color::Green, Color::GreenLight, Color::Magenta, Color::MagentaLight, Color::Red, Color::RedLight, Color::White, Color::Yellow, Color::YellowLight
 
-int main(int argc, const char* argv[]) {
+int main() {
   using namespace ftxui;
   // clang-format off
   auto document =

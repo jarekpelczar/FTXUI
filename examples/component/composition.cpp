@@ -12,7 +12,7 @@ using namespace ftxui;
 
 // An example of how to compose multiple components into one and maintain their
 // interactiveness.
-int main(int argc, const char* argv[]) {
+int main() {
   auto button_option = ButtonOption();
   button_option.border = false;
 

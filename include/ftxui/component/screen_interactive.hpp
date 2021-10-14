@@ -20,16 +20,16 @@ using Component = std::shared_ptr<ComponentBase>;
 
 class ScreenInteractive : public Screen {
  public:
-  static ScreenInteractive FixedSize(int dimx, int dimy);
-  static ScreenInteractive Fullscreen();
-  static ScreenInteractive FitComponent();
-  static ScreenInteractive TerminalOutput();
+  [[nodiscard]] static ScreenInteractive FixedSize(int dimx, int dimy);
+  [[nodiscard]] static ScreenInteractive Fullscreen();
+  [[nodiscard]] static ScreenInteractive FitComponent();
+  [[nodiscard]] static ScreenInteractive TerminalOutput();
 
   void Loop(Component);
-  std::function<void()> ExitLoopClosure();
+  [[nodiscard]] std::function<void()> ExitLoopClosure();
 
   void PostEvent(Event event);
-  CapturedMouse CaptureMouse();
+  [[nodiscard]] CapturedMouse CaptureMouse();
 
  private:
   void Install();

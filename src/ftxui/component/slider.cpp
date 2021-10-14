@@ -24,7 +24,7 @@ class SliderBase : public ComponentBase {
         max_(max),
         increment_(increment) {}
 
-  Element Render() {
+  Element Render() override {
     auto gauge_color =
         Focused() ? color(Color::GrayLight) : color(Color::GrayDark);
     float percent = float(*value_ - min_) / float(max_ - min_);
@@ -84,7 +84,7 @@ class SliderBase : public ComponentBase {
     return false;
   }
 
-  bool Focusable() const final { return true; }
+  [[nodiscard]] bool Focusable() const final { return true; }
 
  private:
   ConstStringRef label_;

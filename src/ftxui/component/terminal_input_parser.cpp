@@ -17,7 +17,7 @@ void TerminalInputParser::Timeout(int time) {
   if (timeout_ < 50)
     return;
   timeout_ = 0;
-  if (pending_.size())
+  if (!pending_.empty())
     Send(SPECIAL);
 }
 
@@ -111,7 +111,7 @@ TerminalInputParser::Output TerminalInputParser::Parse() {
 // Then some sequences are illegal if it exist a shorter representation of the
 // same codepoint.
 TerminalInputParser::Output TerminalInputParser::ParseUTF8() {
-  unsigned char head = static_cast<unsigned char>(Current());
+  auto head = static_cast<unsigned char>(Current());
   unsigned char selector = 0b1000'0000;
 
   // The non code-point part of the first byte.
@@ -188,7 +188,7 @@ TerminalInputParser::Output TerminalInputParser::ParseESC() {
 
 TerminalInputParser::Output TerminalInputParser::ParseDCS() {
   // Parse until the string terminator ST.
-  while (1) {
+  while (true) {
     if (!Eat())
       return UNCOMPLETED;
 

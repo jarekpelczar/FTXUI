@@ -1,4 +1,4 @@
-#include <stdio.h>    // for fileno, stdin
+#include <cstdio>     // for fileno, stdin
 #include <algorithm>  // for copy, max, min
 #include <csignal>  // for signal, SIGABRT, SIGFPE, SIGILL, SIGINT, SIGSEGV, SIGTERM, SIGWINCH
 #include <cstdlib>           // for NULL
@@ -126,7 +126,7 @@ int CheckStdinReady(int usec_timeout) {
   fd_set fds;
   FD_ZERO(&fds);
   FD_SET(STDIN_FILENO, &fds);
-  select(STDIN_FILENO + 1, &fds, NULL, NULL, &tv);
+  select(STDIN_FILENO + 1, &fds, nullptr, nullptr, &tv);
   return FD_ISSET(STDIN_FILENO, &fds);
 }
 
@@ -143,8 +143,8 @@ void EventListener(std::atomic<bool>* quit, Sender<Event> out) {
     }
 
     char buff[buffer_size];
-    int l = read(fileno(stdin), buff, buffer_size);
-    for (int i = 0; i < l; ++i)
+    ssize_t l = read(fileno(stdin), buff, buffer_size);
+    for (ssize_t i = 0; i < l; ++i)
       parser.Add(buff[i]);
   }
 }

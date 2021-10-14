@@ -6,7 +6,7 @@
 #include "ftxui/screen/box.hpp"    // for ftxui
 #include "ftxui/screen/color.hpp"  // for Color, Color::Blue
 
-int main(int argc, const char* argv[]) {
+int main() {
   using namespace ftxui;
   // clang-format off
   auto document =

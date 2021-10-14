@@ -9,8 +9,8 @@ struct Box {
   int y_min = 0;
   int y_max = 0;
 
-  static Box Intersection(Box a, Box b);
-  bool Contain(int x, int y);
+  [[nodiscard]] static Box Intersection(Box a, Box b);
+  [[nodiscard]] bool Contain(int x, int y) const;
 };
 
 }  // namespace ftxui

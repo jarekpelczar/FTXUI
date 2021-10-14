@@ -6,7 +6,7 @@
 #include "ftxui/screen/box.hpp"
 #include "ftxui/screen/color.hpp"
 
-int main(void) {
+int main() {
   using namespace ftxui;
   Element document = graph([](int x, int y) {
                        std::vector<int> result(x, 0);

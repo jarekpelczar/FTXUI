@@ -1,4 +1,4 @@
-#include <stddef.h>    // for size_t
+#include <cstddef>     // for size_t
 #include <algorithm>   // for max, min
 #include <functional>  // for function
 #include <memory>      // for shared_ptr, allocator_traits<>::value_type
@@ -130,12 +130,12 @@ class MenuBase : public ComponentBase {
     return true;
   }
 
-  bool Focusable() const final { return entries_.size(); }
-  int& focused_entry() { return option_->focused_entry(); }
+  [[nodiscard]] bool Focusable() const final { return entries_.size(); }
+  [[nodiscard]] int& focused_entry() { return option_->focused_entry(); }
 
  protected:
   ConstStringListRef entries_;
-  int* selected_ = 0;
+  int* selected_ = nullptr;
   Ref<MenuOption> option_;
 
   std::vector<Box> boxes_;

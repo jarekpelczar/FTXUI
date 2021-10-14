@@ -3,7 +3,7 @@
 # Introduction
 
 Welcome to the FTXUI documentation. Here, you will find the detail of every
-functions and classes.
+function and class.
 
 @tableofcontents 
 

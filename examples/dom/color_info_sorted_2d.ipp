@@ -48,5 +48,5 @@ std::vector<std::vector<ColorInfo>> ColorInfoSorted2D() {
     }
   }
 
-  return std::move(info_columns);
+  return info_columns;
 }

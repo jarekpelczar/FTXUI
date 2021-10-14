@@ -1,5 +1,5 @@
-#include <stdlib.h>  // for EXIT_SUCCESS
-#include <memory>    // for allocator, __shared_ptr_access
+#include <cstdlib> // for EXIT_SUCCESS
+#include <memory>  // for allocator, __shared_ptr_access
 #include <string>  // for string, operator+, basic_string, to_string, char_traits
 #include <vector>  // for vector, __alloc_traits<>::value_type
 
@@ -17,7 +17,7 @@ Component Window(std::string title, Component component) {
   });
 }
 
-int main(int argc, const char* argv[]) {
+int main() {
   int menu_selected[] = {0, 0, 0};
   std::vector<std::vector<std::string>> menu_entries = {
       {

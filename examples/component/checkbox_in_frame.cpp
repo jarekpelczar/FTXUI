@@ -14,7 +14,7 @@ struct CheckboxState {
   bool checked;
 };
 
-int main(int argc, const char* argv[]) {
+int main() {
   std::vector<CheckboxState> states(30);
   auto container = Container::Vertical({});
   for (int i = 0; i < 30; ++i) {

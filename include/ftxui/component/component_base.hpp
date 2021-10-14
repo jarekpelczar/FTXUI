@@ -26,21 +26,21 @@ class ComponentBase {
   virtual ~ComponentBase();
 
   // Component hierarchy:
-  ComponentBase* Parent() const;
-  Component& ChildAt(size_t i);
-  size_t ChildCount() const;
+  [[nodiscard]] ComponentBase* Parent() const;
+  [[nodiscard]] Component& ChildAt(size_t i);
+  [[nodiscard]] size_t ChildCount() const;
   void Add(Component children);
   void Detach();
   void DetachAllChildren();
 
   // Renders the component.
-  virtual Element Render();
+  [[nodiscard]] virtual Element Render();
 
   // Handles an event.
   // By default, reduce on children with a lazy OR.
   //
   // Returns whether the event was handled or not.
-  virtual bool OnEvent(Event);
+  [[nodiscard]] virtual bool OnEvent(Event);
 
   // Focus management ----------------------------------------------------------
   //
@@ -49,17 +49,17 @@ class ComponentBase {
   //
   // We say an element has the focus if the chain of ActiveChild() from the
   // root component contains this object.
-  virtual Component ActiveChild();
+  [[nodiscard]] virtual Component ActiveChild();
 
   // Return true when the component contains focusable elements.
   // The non focusable Component will be skipped when navigating using the
   // keyboard.
-  virtual bool Focusable() const;
+  [[nodiscard]] virtual bool Focusable() const;
 
   // Whether this is the active child of its parent.
-  bool Active() const;
+  [[nodiscard]] bool Active() const;
   // Whether all the ancestors are active.
-  bool Focused() const;
+  [[nodiscard]] bool Focused() const;
 
   // Make the |child| to be the "active" one.
   virtual void SetActiveChild(ComponentBase* child);

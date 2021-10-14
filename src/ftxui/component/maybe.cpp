@@ -13,7 +13,7 @@ Component Maybe(Component child, bool* show) {
     Element Render() override {
       return *show_ ? ComponentBase::Render() : std::make_unique<Node>();
     }
-    bool Focusable() const override {
+    [[nodiscard]] bool Focusable() const override {
       return *show_ && ComponentBase::Focusable();
     }
     bool OnEvent(Event event) override {

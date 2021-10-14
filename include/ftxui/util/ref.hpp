@@ -10,7 +10,7 @@ namespace ftxui {
 template <typename T>
 class ConstRef {
  public:
-  ConstRef() {}
+  ConstRef() = default;
   ConstRef(T t) : owned_(t) {}
   ConstRef(const T* t) : address_(t) {}
   const T& operator*() { return address_ ? *address_ : owned_; }
@@ -26,7 +26,7 @@ class ConstRef {
 template <typename T>
 class Ref {
  public:
-  Ref() {}
+  Ref() = default;
   Ref(T t) : owned_(t) {}
   Ref(T* t) : address_(t) {}
   T& operator*() { return address_ ? *address_ : owned_; }
@@ -82,8 +82,12 @@ class ConstStringRef {
   ConstStringRef(const wchar_t* ref) : ConstStringRef(std::wstring(ref)) {}
   ConstStringRef(const char* ref)
       : ConstStringRef(to_wstring(std::string(ref))) {}
-  const std::string& operator*() { return address_ ? *address_ : owned_; }
-  const std::string* operator->() { return address_ ? address_ : &owned_; }
+  const std::string& operator*() noexcept {
+    return address_ ? *address_ : owned_;
+  }
+  const std::string* operator->() noexcept {
+    return address_ ? address_ : &owned_;
+  }
 
  private:
   const std::string owned_;
@@ -96,8 +100,10 @@ class ConstStringListRef {
   ConstStringListRef(const std::vector<std::string>* ref) : ref_(ref) {}
   ConstStringListRef(const std::vector<std::wstring>* ref) : ref_wide_(ref) {}
 
-  size_t size() const { return ref_ ? ref_->size() : ref_wide_->size(); }
-  std::string operator[](size_t i) const {
+  [[nodiscard]] size_t size() const noexcept {
+    return ref_ ? ref_->size() : ref_wide_->size();
+  }
+  [[nodiscard]] std::string operator[](size_t i) const {
     return ref_ ? (*ref_)[i] : to_string((*ref_wide_)[i]);
   }
 

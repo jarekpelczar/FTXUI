@@ -50,23 +50,23 @@ class Screen {
  public:
   // Constructors:
   Screen(int dimx, int dimy);
-  static Screen Create(Dimensions dimension);
-  static Screen Create(Dimensions width, Dimensions height);
+  [[nodiscard]] static Screen Create(Dimensions dimension);
+  [[nodiscard]] static Screen Create(Dimensions width, Dimensions height);
 
   // Node write into the screen using Screen::at.
-  std::string& at(int x, int y);
-  Pixel& PixelAt(int x, int y);
+  [[nodiscard]] std::string& at(int x, int y);
+  [[nodiscard]] Pixel& PixelAt(int x, int y);
 
   // Convert the screen into a printable string in the terminal.
-  std::string ToString();
+  [[nodiscard]] std::string ToString();
   void Print();
 
   // Get screen dimensions.
-  int dimx() { return dimx_; }
-  int dimy() { return dimy_; }
+  [[nodiscard]] int dimx() const noexcept { return dimx_; }
+  [[nodiscard]] int dimy() const noexcept { return dimy_; }
 
   // Move the terminal cursor n-lines up with n = dimy().
-  std::string ResetPosition(bool clear = false);
+  [[nodiscard]] std::string ResetPosition(bool clear = false);
 
   // Fill with space.
   void Clear();
@@ -78,7 +78,7 @@ class Screen {
     int x = 0;
     int y = 0;
   };
-  Cursor cursor() const { return cursor_; }
+  [[nodiscard]] Cursor cursor() const { return cursor_; }
   void SetCursor(Cursor cursor) { cursor_ = cursor; }
 
  protected:

@@ -24,12 +24,12 @@ class ComponentBase;
 /// https://invisible-island.net/xterm/ctlseqs/ctlseqs.html
 struct Event {
   // --- Constructor section ---------------------------------------------------
-  static Event Character(std::string);
-  static Event Character(char);
-  static Event Character(wchar_t);
-  static Event Special(std::string);
-  static Event Mouse(std::string, Mouse mouse);
-  static Event CursorReporting(std::string, int x, int y);
+  [[nodiscard]] static Event Character(std::string);
+  [[nodiscard]] static Event Character(char);
+  [[nodiscard]] static Event Character(wchar_t);
+  [[nodiscard]] static Event Special(std::string);
+  [[nodiscard]] static Event Mouse(std::string, Mouse mouse);
+  [[nodiscard]] static Event CursorReporting(std::string, int x, int y);
 
   // --- Arrow ---
   static const Event ArrowLeft;
@@ -56,22 +56,23 @@ struct Event {
   static Event Custom;
 
   //--- Method section ---------------------------------------------------------
-  bool is_character() const { return type_ == Type::Character; }
-  std::string character() const { return input_; }
+  [[nodiscard]] bool is_character() const noexcept { return type_ ==
+                                                      Type::Character; }
+  [[nodiscard]] std::string character() const { return input_; }
 
-  bool is_mouse() const { return type_ == Type::Mouse; }
-  struct Mouse& mouse() {
+  [[nodiscard]] bool is_mouse() const noexcept { return type_ == Type::Mouse; }
+  [[nodiscard]] struct Mouse& mouse() noexcept {
     return mouse_;
   }
 
-  bool is_cursor_reporting() const { return type_ == Type::CursorReporting; }
-  int cursor_x() const { return cursor_.x; }
-  int cursor_y() const { return cursor_.y; }
+  [[nodiscard]] bool is_cursor_reporting() const noexcept { return type_ == Type::CursorReporting; }
+  [[nodiscard]] int cursor_x() const noexcept { return cursor_.x; }
+  [[nodiscard]] int cursor_y() const noexcept { return cursor_.y; }
 
-  const std::string& input() const { return input_; }
+  [[nodiscard]] const std::string& input() const noexcept { return input_; }
 
-  bool operator==(const Event& other) const { return input_ == other.input_; }
-  bool operator!=(const Event& other) const { return !operator==(other); }
+  bool operator==(const Event& other) const noexcept { return input_ == other.input_; }
+  bool operator!=(const Event& other) const noexcept { return !operator==(other); }
 
   //--- State section ----------------------------------------------------------
   ScreenInteractive* screen_ = nullptr;

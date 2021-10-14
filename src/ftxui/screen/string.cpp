@@ -7,8 +7,8 @@
 
 #include "ftxui/screen/string.hpp"
 
-#include <stddef.h>  // for size_t
-#include <stdint.h>  // for uint32_t, uint8_t
+#include <cstddef>   // for size_t
+#include <cstdint>   // for uint32_t, uint8_t
 #include <codecvt>   // for codecvt_utf8_utf16
 #include <locale>    // for wstring_convert
 #include <string>    // for string, basic_string, wstring, allocator
@@ -269,7 +269,7 @@ std::vector<std::string> Utf8ToGlyphs(const std::string& input) {
 
     // Combining characters are put with the previous glyph they are modifying.
     if (IsCombining(codepoint)) {
-      if (out.size() != 0)
+      if (!out.empty())
         out.back() += append;
       continue;
     }
@@ -278,7 +278,7 @@ std::vector<std::string> Utf8ToGlyphs(const std::string& input) {
     // string to reserve the space the first is taking.
     if (IsFullWidth(codepoint)) {
       out.push_back(append);
-      out.push_back("");
+      out.emplace_back("");
       continue;
     }
 
